@@ -357,6 +357,25 @@ body.comfort-mode .reveal-target{opacity:1!important;transform:none!important}
 @media(prefers-reduced-motion:reduce){.reveals-enabled .reveal-target{opacity:1!important;transform:none!important;transition:none!important}}
 @media print{.reveal-target{opacity:1!important;transform:none!important}.graph-dialog,.comfort-button{display:none!important}}
 
+
+/* Botão discreto de retorno ao início; não modifica temas, sons ou gráficos. */
+.back-to-top[hidden]{display:none!important}
+.back-to-top{
+  position:fixed;right:clamp(12px,3vw,26px);
+  bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:55;
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  min-height:48px;min-width:48px;padding:.6rem .9rem;
+  border:1px solid #d2c0e3;border-radius:999px;
+  background:#fff;color:#4f3470;font:700 .87rem/1.2 system-ui,sans-serif;
+  box-shadow:0 6px 22px rgba(42,32,75,.17);cursor:pointer;touch-action:manipulation
+}
+.back-to-top:hover{background:#f4edfb}
+.back-to-top:focus-visible{outline:3px solid #315ca4;outline-offset:4px}
+body.theme-spider .back-to-top{color:#173f76;border-color:#a3bce3}
+body.theme-music .back-to-top{color:#713979;border-color:#dfbbd9}
+body.comfort-mode .back-to-top{box-shadow:none;color:#173e61;border-color:#8aa4c3}
+@media(max-width:480px){.back-to-top{right:12px;padding:.55rem .76rem}}
+
 </style>
 
 
@@ -377,6 +396,7 @@ indice = dados.div(dados.loc[2019]).mul(100)</code></pre><p>A participação exi
 python -m src.etl
 python -m src.figuras</code></pre></section>
 <section id="referencias"><h2>6. Referências</h2><ul><li>Data.Rio. (2026). <a href="https://www.data.rio/documents/5d5849bf28bf4f689214f890e3f4ac04/about">Tabela 440: movimento de passageiros no município do Rio de Janeiro entre 1995 e 2025</a> [Conjunto de dados].</li><li>The pandas development team. (s.d.). <a href="https://pandas.pydata.org/docs/">pandas documentation</a>.</li><li>Wilkinson, M. D., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. <i>Scientific Data, 3</i>, 160018. <a href="https://doi.org/10.1038/sdata.2016.18">doi.org/10.1038/sdata.2016.18</a>.</li></ul></section></main>
+<button type="button" class="back-to-top" id="back-to-top" aria-label="Voltar ao início da página" title="Voltar ao início" hidden><span aria-hidden="true">↑</span> Topo</button>
 <dialog class="graph-dialog" id="graph-dialog" aria-labelledby="graph-dialog-title" aria-describedby="graph-description">
   <div class="graph-layout"><div class="graph-tools"><strong id="graph-dialog-title">Visualizar gráfico</strong>
     <div class="graph-actions">
@@ -660,6 +680,24 @@ const cmds=document.querySelector('#comandos');cmds.textContent='git clone '+url
     });
     document.documentElement.classList.add("reveals-enabled");
   }
+})();
+</script>
+
+<script>
+(() => {
+  const button = document.getElementById("back-to-top");
+  if (!button) return;
+  function refresh() {
+    button.hidden = window.scrollY < 360;
+  }
+  window.addEventListener("scroll", refresh, {passive:true});
+  window.addEventListener("resize", refresh);
+  refresh();
+  button.addEventListener("click", () => {
+    const prefersReducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+    const comfortMode = document.body.classList.contains("comfort-mode");
+    window.scrollTo({top:0,behavior:prefersReducedMotion || comfortMode ? "auto" : "smooth"});
+  });
 })();
 </script>
 </html>
