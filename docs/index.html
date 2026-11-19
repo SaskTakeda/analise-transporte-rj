@@ -785,6 +785,34 @@ main > section li{
     text-align-last:auto;
   }
 }
+
+/* Figura 1 interativa: canvas local, sem dependências gráficas externas. */
+#resultados .fig1-interactive{width:min(100%,1200px);max-width:100%;margin-inline:auto}
+.fig1-controls{display:grid;gap:13px;min-width:0}
+.fig1-controls fieldset{margin:0;padding:12px;border:1px solid #dfd3e9;border-radius:14px;min-width:0;background:rgba(255,255,255,.7)}
+.fig1-controls legend{font-size:.9rem;font-weight:700;color:var(--ink);padding:0 6px}
+.fig1-checks{display:flex;flex-wrap:wrap;gap:8px}
+.fig1-checks label{display:inline-flex;align-items:center;gap:7px;min-height:40px;padding:7px 11px;border:1px solid #d4c5e1;border-left:4px solid var(--fig1-color);border-radius:20px;background:#fff;color:#352743;font-size:.87rem;cursor:pointer}
+.fig1-checks input{accent-color:var(--fig1-color);width:16px;height:16px;margin:0}
+.fig1-options{display:flex;flex-wrap:wrap;gap:12px}
+.fig1-options label{display:grid;gap:5px;flex:1 1 180px;font-size:.85rem;font-weight:650;color:var(--ink)}
+.fig1-options select{width:100%;max-width:100%;min-height:43px;padding:7px 10px;margin:0;border:1px solid #c9b9dc;border-radius:9px;background:#fff;color:#342547;font:inherit}
+.fig1-actions{display:flex;gap:9px;flex-wrap:wrap}
+.fig1-actions button{min-height:42px;padding:8px 13px;border:1px solid #c9b9dc;border-radius:9px;background:#fff;color:#463158;font:600 .85rem system-ui,sans-serif;cursor:pointer}
+.fig1-actions button:hover{background:#f2ebf8}
+.fig1-chart-scroll{margin-top:14px;overflow-x:auto;overflow-y:hidden;max-width:100%;background:#fff;border:1px solid #e2d9ea;border-radius:14px;scrollbar-width:thin}
+#fig1-chart{display:block;max-width:none!important;background:#fff;cursor:crosshair}
+.fig1-range-label{display:block;margin-top:14px;color:var(--ink);font-size:.88rem;font-weight:650}
+.fig1-year{width:100%;margin:8px 0 10px;accent-color:#67409b}
+.fig1-output{display:block;min-height:45px;padding:10px 12px;border:1px solid #ddcfe7;border-radius:10px;background:#fff;color:#3a2b4b;font-size:.86rem;line-height:1.5}
+#resultados .fig1-note,#resultados .fig1-static-link{max-width:none;width:100%;font-size:.87rem;line-height:1.55}
+body.comfort-mode .fig1-controls fieldset,body.comfort-mode .fig1-output{background:#223344!important;color:#e4edf9!important;border-color:#52677b!important}
+body.comfort-mode .fig1-controls legend,body.comfort-mode .fig1-options label,body.comfort-mode .fig1-range-label{color:#e9f3ff!important}
+body.comfort-mode .fig1-controls label,body.comfort-mode .fig1-options select,body.comfort-mode .fig1-actions button{background:#2a4154!important;color:#ecf5ff!important;border-color:#688098!important}
+body.comfort-mode .fig1-chart-scroll{background:#fff!important}
+.fig1-controls :is(button,select,input):focus-visible,.fig1-chart-scroll:focus-visible,.fig1-year:focus-visible{outline:3px solid #3286aa;outline-offset:3px}
+@media(max-width:580px){.fig1-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.fig1-options label:first-child{grid-column:1/-1}.fig1-actions button{flex:1}.fig1-checks label{font-size:.79rem;padding:7px}}
+@media print{.fig1-controls,.fig1-year,.fig1-range-label{display:none!important}}
 </style>
 
 
@@ -813,7 +841,32 @@ indice = dados.div(dados.loc[2019]).mul(100)
 variacao_pct = indice.sub(100)</code></pre>
 <p>O denominador da participação exige seis valores observados, razão pela qual a composição anual de 2012–2014 não é calculada. O índice mede cada modal em relação ao <strong>seu próprio volume em 2019</strong>, permitindo comparar recuperações percentuais sem confundir diferentes escalas de operação.</p>
 <p><strong>Limitações de comparabilidade:</strong> a Tabela 440 agrega movimentos anuais fornecidos por diferentes operadores, não identifica usuários únicos, exclui vans e kombis e não detalha tarifas, trajetos, integração, oferta de viagens nem a classificação separada do BRT. Por isso, as relações entre sistemas são descritivas e <strong>não autorizam inferências sobre migração individual de passageiros ou causalidade histórica</strong>.</p></section>
-<section id="resultados"><h2>3. Resultados e discussão</h2><h3>RQ1 — Trajetórias anuais</h3><p>Os ônibus apresentaram o maior movimento em todos os 31 anos. Passaram de aproximadamente 1,20 bilhão de passageiros registrados em 1995 ao pico de 1,33 bilhão em 2015; após cair para 454,2 milhões em 2021, chegaram a 672,6 milhões em 2025. O metrô atingiu seu maior volume da série em 2016, com 253,6 milhões, e registrou 186,4 milhões em 2025. Esses resultados demonstram ritmos distintos entre os sistemas, mas não permitem distinguir demanda reprimida, mudanças na oferta ou escolhas individuais.</p><figure><a class="figure-open" href="assets/series.png" target="_blank" rel="noopener" aria-label="Abrir a figura 1 em tamanho original"><img src="assets/series.png" loading="lazy" decoding="async" alt="Seis séries anuais em milhões de passageiros, com interrupção dos registros do bonde entre 2012 e 2014."></a><figcaption>Figura 1. Evolução anual por modal. Eixo horizontal: ano (1995–2025); eixos verticais: milhões de passageiros, com escalas independentes. A interrupção na linha do bonde corresponde aos anos com dados indisponíveis (2012–2014). Fonte das figuras e tabelas: elaboração dos autores com a Tabela 440.</figcaption></figure>
+<section id="resultados"><h2>3. Resultados e discussão</h2><h3>RQ1 — Trajetórias anuais</h3><p>Os ônibus apresentaram o maior movimento em todos os 31 anos. Passaram de aproximadamente 1,20 bilhão de passageiros registrados em 1995 ao pico de 1,33 bilhão em 2015; após cair para 454,2 milhões em 2021, chegaram a 672,6 milhões em 2025. O metrô atingiu seu maior volume da série em 2016, com 253,6 milhões, e registrou 186,4 milhões em 2025. Esses resultados demonstram ritmos distintos entre os sistemas, mas não permitem distinguir demanda reprimida, mudanças na oferta ou escolhas individuais.</p><figure class="fig1-interactive" id="figura-01">
+<figcaption><strong>Figura 1.</strong> Movimento anual de passageiros por modal (1995–2025). Fonte: elaboração dos autores com a Tabela 440 do Data.Rio. Selecione um ou mais modais para comparar suas trajetórias.</figcaption>
+<div class="fig1-controls">
+<fieldset><legend>Selecione os modais</legend><div class="fig1-checks" id="fig1-checks">
+<label style="--fig1-color:#b8375d"><input type="checkbox" value="Ônibus" checked>Ônibus</label>
+<label style="--fig1-color:#2260bd"><input type="checkbox" value="Metrô" checked>Metrô</label>
+<label style="--fig1-color:#7845b2"><input type="checkbox" value="Trem" checked>Trem</label>
+<label style="--fig1-color:#a95c0f"><input type="checkbox" value="Bonde">Bonde</label>
+<label style="--fig1-color:#117d73"><input type="checkbox" value="Hidroviário">Hidroviário</label>
+<label style="--fig1-color:#586c88"><input type="checkbox" value="Aeroviário">Aeroviário</label>
+</div></fieldset>
+<div class="fig1-options">
+<label>Comparar em<select id="fig1-metric"><option value="volume">Milhões de passageiros por ano</option><option value="index">Índice relativo (2019 = 100)</option></select></label>
+<label>Escala vertical<select id="fig1-scale"><option value="linear">Linear</option><option value="log">Logarítmica</option></select></label>
+<label>Intervalo dos anos<select id="fig1-interval"><option value="5">De 5 em 5 anos</option><option value="1">Todos os anos</option><option value="10">De 10 em 10 anos</option></select></label>
+</div>
+<div class="fig1-actions"><button type="button" id="fig1-all">Selecionar todos</button><button type="button" id="fig1-none">Limpar seleção</button></div>
+</div>
+<div class="fig1-chart-scroll" tabindex="0" aria-label="Gráfico rolável horizontalmente em telas pequenas"><canvas id="fig1-chart" role="img" aria-label="Gráfico comparativo dos modais do Rio de Janeiro entre 1995 e 2025">Os dados também estão disponíveis na tabela de movimento anual abaixo.</canvas></div>
+<label class="fig1-range-label" for="fig1-year">Explorar ano: <strong id="fig1-year-label">2025</strong></label>
+<input type="range" id="fig1-year" class="fig1-year" min="1995" max="2025" step="1" value="2025">
+<output id="fig1-output" class="fig1-output" aria-live="polite">Selecione os modais para ver os valores por ano.</output>
+<p class="fig1-note">Os dados originais estão em <strong>milhares de passageiros</strong>; o gráfico divide cada valor por 1.000 para mostrar <strong>milhões por ano</strong>. A escala logarítmica permite visualizar modais com volumes muito diferentes, sem igualar suas quantidades. O índice 2019 = 100 compara evoluções relativas. Os valores ausentes do bonde em 2012–2014 continuam como lacunas.</p>
+<p class="fig1-static-link"><a href="assets/series.png" target="_blank" rel="noopener noreferrer">Ver também a Figura 1 estática em seis painéis separados</a></p>
+<noscript><img src="assets/series.png" loading="lazy" alt="Versão estática da Figura 1 com seis gráficos separados e lacunas do bonde de 2012 a 2014."></noscript>
+</figure>
 <h3>RQ2 — Composição do movimento observado</h3><p>Na soma dos <strong>seis modais registrados pela Tabela 440</strong>, os ônibus passaram de 84,7% em 1995 para 68,1% em 2025: queda de 16,6 pontos percentuais. O metrô subiu de 6,0% para 18,9%: alta de 12,9 pontos percentuais. Seu volume absoluto também cresceu de 85,0 milhões para 186,4 milhões. Uma parcela relativa maior não comprova transferência de passageiros de outro modal, já que as bases são agregadas e podem contar várias viagens da mesma pessoa.</p><div class="scroll"><table><thead><tr><th>Modal</th><th>1995 (%)</th><th>2025 (%)</th><th>2020 vs. 2019 (%)</th><th>2025 vs. 2019 (%)</th></tr></thead><tbody><tr><td>Ônibus</td><td>84,7</td><td>68,1</td><td>-45,1</td><td>-33,3</td></tr><tr><td>Metrô</td><td>6,0</td><td>18,9</td><td>-52,9</td><td>-25,8</td></tr><tr><td>Trem</td><td>7,0</td><td>9,1</td><td>-40,2</td><td>-45,3</td></tr><tr><td>Bonde</td><td>0,01</td><td>0,07</td><td>-66,7</td><td>72,8</td></tr><tr><td>Hidroviário</td><td>1,8</td><td>1,4</td><td>-58,4</td><td>-34,3</td></tr><tr><td>Aeroviário</td><td>0,5</td><td>2,5</td><td>-57,0</td><td>7,7</td></tr></tbody></table></div><p><small>Nota: percentuais calculados sobre os seis modais registrados; o bonde é exibido com duas casas decimais para evitar arredondamento a zero.</small></p>
 <h3>RQ3 — Queda de 2020 e recuperação frente a 2019</h3><p>Entre 2019 e 2020, as retrações oscilaram entre −40,2% (trem) e −66,7% (bonde). Em 2025, os volumes de ônibus (−33,3%), metrô (−25,8%), trem (−45,3%) e hidroviário (−34,3%) permaneciam abaixo de 2019. O bonde (+72,8%) e o aeroviário (+7,7%) foram os únicos que superaram a referência. O percentual do bonde se refere a uma base absoluta pequena: em 2025 ele respondeu por 0,07% da soma analisada. Portanto, a recuperação percentual deve ser lida junto da escala operacional.</p><figure><a class="figure-open" href="assets/retomada.png" target="_blank" rel="noopener" aria-label="Abrir a figura 2 em tamanho original"><img src="assets/retomada.png" loading="lazy" decoding="async" alt="Comparação de 2020 e 2025 com 2019 igual a 100. Apenas bonde e aeroviário ultrapassam a referência em 2025."></a><figcaption>Figura 2. Cada barra compara um modal com seu próprio volume de 2019. A linha tracejada marca o nível de referência.</figcaption></figure>
 <h3>Contextualização histórica e limites de interpretação</h3>
@@ -1157,5 +1210,155 @@ const cmds=document.querySelector('#comandos');cmds.textContent='git clone '+url
     window.scrollTo({top:0,behavior:reducedMotion || comfort ? "auto" : "smooth"});
   });
 })();
+</script>
+<script>
+
+/* Figura 1: reproduz o gráfico com os valores da tabela HTML, sem dependências. */
+(() => {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const table = $("serie"), canvas = $("fig1-chart"), wrap = $("fig1-checks");
+  const metric = $("fig1-metric"), scale = $("fig1-scale"), interval = $("fig1-interval");
+  const slider = $("fig1-year"), output = $("fig1-output"), yearLabel = $("fig1-year-label");
+  if (!table || !canvas || !wrap) return;
+  const colors = {"Ônibus":"#b8375d","Metrô":"#2260bd","Trem":"#7845b2","Bonde":"#a95c0f","Hidroviário":"#117d73","Aeroviário":"#586c88"};
+  const checkboxes = [...wrap.querySelectorAll('input[type="checkbox"]')];
+  const names = checkboxes.map(input => input.value);
+  const headers = [...table.querySelectorAll("thead tr:first-child th")].map(th => th.textContent.trim());
+  function toMillion(text) {
+    const s = text.trim().replace(/\s/g,"");
+    if (!s || s==="—" || s==="-" || s==="..." || s.toLowerCase()==="nan") return null;
+    const n = Number(s.replace(/\./g,"").replace(",","."));
+    return Number.isFinite(n) && n >= 0 ? n / 1000 : null;
+  }
+  const data = [...table.querySelectorAll("tbody tr")].map(tr => {
+    const cells=[...tr.querySelectorAll("th,td")], year=Number(cells[0]?.textContent.trim());
+    if (!Number.isInteger(year) || year < 1995 || year > 2025) return null;
+    const volumes={};
+    names.forEach(name => {
+      const i=headers.indexOf(name);
+      volumes[name]=i > 0 && cells[i] ? toMillion(cells[i].textContent) : null;
+    });
+    return {year,volumes};
+  }).filter(Boolean).sort((a,b)=>a.year-b.year);
+  if (!data.length) {output.textContent="Tabela indisponível para o gráfico.";return;}
+  const base=data.find(x=>x.year===2019), ctx=canvas.getContext("2d");
+  if (!ctx) {output.textContent="O navegador não oferece suporte ao gráfico.";return;}
+  const years=data.map(d=>d.year);
+  let focus=years[years.length-1], plotLeft=73, plotWidth=500;
+  slider.min=String(years[0]);slider.max=String(focus);slider.value=String(focus);
+  const fmt=(v,d=2)=>new Intl.NumberFormat("pt-BR",{maximumFractionDigits:d}).format(v);
+  const chosen=()=>checkboxes.filter(c=>c.checked).map(c=>c.value);
+  const value=(row,name)=>{
+    const v=row.volumes[name];
+    if(v==null)return null;
+    if(metric.value==="volume")return v;
+    const reference=base?.volumes[name];
+    return reference > 0 ? 100*v/reference : null;
+  };
+  const nice=(v)=>{
+    const e=Math.pow(10,Math.floor(Math.log10(v||1))),n=v/e;
+    return (n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10)*e;
+  };
+  function draw(){
+    const w=Math.max(630,Math.floor(canvas.parentElement.clientWidth-2)),h=425;
+    const pixelRatio=Math.min(2,window.devicePixelRatio||1);
+    if (canvas.width!==Math.floor(w*pixelRatio)||canvas.height!==Math.floor(h*pixelRatio)){
+      canvas.width=Math.floor(w*pixelRatio);canvas.height=Math.floor(h*pixelRatio);
+      canvas.style.width=w+"px";canvas.style.height=h+"px";
+    }
+    ctx.setTransform(pixelRatio,0,0,pixelRatio,0,0);ctx.clearRect(0,0,w,h);
+    ctx.fillStyle="#ffffff";ctx.fillRect(0,0,w,h);
+    const selected=chosen(),l=73,r=22,t=24,b=72,pw=w-l-r,ph=h-t-b;
+    plotLeft=l;plotWidth=pw;
+    if(!selected.length){
+      ctx.fillStyle="#3f4b5e";ctx.font="16px system-ui";ctx.textAlign="center";
+      ctx.fillText("Selecione um ou mais modais.",w/2,h/2);
+      output.textContent="Nenhum modal selecionado.";return;
+    }
+    const vals=data.flatMap(row=>selected.map(name=>value(row,name))).filter(v=>v!==null&&Number.isFinite(v));
+    const max=Math.max(...vals),positive=vals.filter(v=>v>0),log=scale.value==="log";
+    const min=log?Math.pow(10,Math.floor(Math.log10(Math.min(...positive)))):0;
+    const step=nice(max/5),upper=log?max*1.2:Math.ceil(max/step)*step;
+    const yPos=v=>{
+      if(v==null||!Number.isFinite(v)||(log&&v<=0))return null;
+      const fraction=log?(Math.log10(v)-Math.log10(min))/(Math.log10(upper)-Math.log10(min)):v/upper;
+      return t+(1-fraction)*ph;
+    };
+    const xPos=i=>l+pw*(data.length===1?.5:i/(data.length-1));
+    const ticks=[];
+    if(log){
+      for(let k=Math.floor(Math.log10(min));k<=Math.ceil(Math.log10(upper));k++){
+        const v=10**k;if(v>=min&&v<=upper)ticks.push(v);
+      }
+    }else for(let v=0;v<=upper+step/100;v+=step)ticks.push(v);
+    ctx.font="12px system-ui";ctx.textAlign="right";ctx.textBaseline="middle";
+    ticks.forEach(v=>{
+      const y=yPos(v);ctx.beginPath();ctx.moveTo(l,y);ctx.lineTo(w-r,y);ctx.strokeStyle="#e5e9ef";ctx.lineWidth=1;ctx.stroke();
+      ctx.fillStyle="#4c5568";ctx.fillText(fmt(v),l-8,y);
+    });
+    ctx.strokeStyle="#7f899c";ctx.beginPath();ctx.moveTo(l,t);ctx.lineTo(l,h-b);ctx.lineTo(w-r,h-b);ctx.stroke();
+    const gap=Number(interval.value)||5;
+    ctx.textAlign="center";ctx.textBaseline="alphabetic";ctx.fillStyle="#47566a";
+    data.forEach((row,i)=>{
+      if(i!==0&&i!==data.length-1&&(row.year-years[0])%gap!==0)return;
+      ctx.font=(gap===1?"10px":"13px")+" system-ui";ctx.fillText(row.year,xPos(i),h-b+21);
+    });
+    ctx.font="600 14px system-ui";ctx.fillStyle="#2f4054";
+    ctx.fillText("Ano",(l+w-r)/2,h-13);
+    ctx.save();ctx.translate(18,(t+h-b)/2);ctx.rotate(-Math.PI/2);
+    ctx.fillText(metric.value==="volume"?"Milhões de passageiros por ano":"Índice de passageiros (2019 = 100)",0,0);
+    ctx.restore();
+    if(metric.value==="index"&&upper>=100){
+      const y=yPos(100);ctx.setLineDash([5,5]);ctx.strokeStyle="#8c99a9";
+      ctx.beginPath();ctx.moveTo(l,y);ctx.lineTo(w-r,y);ctx.stroke();ctx.setLineDash([]);
+    }
+    selected.forEach(name=>{
+      ctx.strokeStyle=colors[name];ctx.lineWidth=2.7;ctx.lineJoin="round";ctx.lineCap="round";
+      ctx.beginPath();let active=false;
+      data.forEach((row,i)=>{
+        const y=yPos(value(row,name));if(y===null){active=false;return;}
+        active?ctx.lineTo(xPos(i),y):ctx.moveTo(xPos(i),y);active=true;
+      });
+      ctx.stroke();
+    });
+    const idx=Math.max(0,years.indexOf(focus)),cx=xPos(idx),row=data[idx];
+    ctx.strokeStyle="#616d82";ctx.lineWidth=1;ctx.setLineDash([4,4]);
+    ctx.beginPath();ctx.moveTo(cx,t);ctx.lineTo(cx,h-b);ctx.stroke();ctx.setLineDash([]);
+    selected.forEach(name=>{
+      const y=yPos(value(row,name));if(y===null)return;
+      ctx.fillStyle="#fff";ctx.strokeStyle=colors[name];ctx.lineWidth=3;
+      ctx.beginPath();ctx.arc(cx,y,5,0,Math.PI*2);ctx.fill();ctx.stroke();
+    });
+    yearLabel.textContent=String(focus);
+    output.textContent=String(focus)+" — "+selected.map(name=>{
+      const v=value(row,name);
+      return name+": "+(v==null?"dado indisponível":fmt(v)+(metric.value==="volume"?" milhões":" (índice)"));
+    }).join("  |  ");
+  }
+  function changeYear(y){
+    const closest=years.reduce((a,b)=>Math.abs(b-y)<Math.abs(a-y)?b:a,years[0]);
+    if(closest!==focus){focus=closest;slider.value=String(closest);draw();}
+  }
+  wrap.addEventListener("change",draw);
+  [metric,scale,interval].forEach(control=>control.addEventListener("change",draw));
+  $("fig1-all").addEventListener("click",()=>{checkboxes.forEach(c=>c.checked=true);draw();});
+  $("fig1-none").addEventListener("click",()=>{checkboxes.forEach(c=>c.checked=false);draw();});
+  slider.addEventListener("input",()=>changeYear(Number(slider.value)));
+  canvas.addEventListener("mousemove",event=>{
+    const bounds=canvas.getBoundingClientRect();
+    const x=event.clientX-bounds.left,idx=Math.max(0,Math.min(years.length-1,Math.round((x-plotLeft)/plotWidth*(years.length-1))));
+    changeYear(years[idx]);
+  });
+  canvas.addEventListener("click",event=>{
+    const bounds=canvas.getBoundingClientRect();
+    const idx=Math.max(0,Math.min(years.length-1,Math.round(((event.clientX-bounds.left)-plotLeft)/plotWidth*(years.length-1))));
+    changeYear(years[idx]);
+  });
+  if(typeof ResizeObserver!=="undefined")new ResizeObserver(draw).observe(canvas.parentElement);
+  else window.addEventListener("resize",draw);
+  draw();
+})();
+
 </script>
 </html>
