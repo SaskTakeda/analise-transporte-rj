@@ -754,10 +754,36 @@ body.comfort-mode .graph-view img{background:#fff!important}
 }
 
 
-/* A Metodologia usa toda a largura do cartão, sem modificar outras seções. */
-main > #metodologia > p {
+/* Alinhamento acadêmico: o texto de TODOS os cartões usa a largura disponível.
+   Mantém os gráficos, tabelas, títulos e blocos de código com seu próprio layout. */
+main > section{
+  min-width:0;
   width:100%;
-  max-width:none;
+}
+main > section :is(p, blockquote, figcaption){
+  width:100%;
+  max-width:none!important;
+  text-align:justify;
+  text-align-last:left;
+  hyphens:auto;
+  overflow-wrap:anywhere;
+}
+main > section :is(ul,ol){
+  max-width:none!important;
+}
+main > section li{
+  max-width:none!important;
+  text-align:justify;
+  text-align-last:left;
+  hyphens:auto;
+  overflow-wrap:break-word;
+}
+/* Em telas estreitas, evitar espaços excessivos entre palavras. */
+@media(max-width:540px){
+  main > section :is(p,li,blockquote,figcaption){
+    text-align:left;
+    text-align-last:auto;
+  }
 }
 </style>
 
