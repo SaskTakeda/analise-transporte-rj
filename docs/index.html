@@ -406,6 +406,20 @@ body.theme-spider .hero-city::after{
   body.theme-music .music-sparkles span{animation:none!important}
 }
 
+
+/* Movimento delicado da teia no cabeçalho do Theo, semelhante às notas da Giovanna. */
+body.theme-spider:not(.comfort-mode) .hero-city::after{
+  transform-origin:87% 19%;
+  animation:teia-flutua 9s ease-in-out infinite;
+}
+@keyframes teia-flutua{
+  0%,100%{transform:translateY(0) rotate(0deg);opacity:.38}
+  50%{transform:translateY(-6px) rotate(.65deg);opacity:.49}
+}
+@media(prefers-reduced-motion:reduce){
+  body.theme-spider .hero-city::after{animation:none!important;transform:none!important}
+}
+
 </style>
 
 
