@@ -551,6 +551,182 @@ main > section #serie{width:100%}
   main > .section-nav{scroll-behavior:auto}
 }
 
+
+/* ===== Modo conforto visual escuro: cores calmas e contraste consistente.
+   Ativo somente ao tocar o botão de conforto; temas e dados não são alterados. ===== */
+html.comfort-page{color-scheme:dark}
+body.comfort-mode{
+  --ink:#e5edf6;
+  --ink-soft:#b8c7d8;
+  --surface:#1c2936;
+  --line:#344659;
+  background:#111922!important;
+  background-image:none!important;
+  color:#e5edf6!important;
+}
+body.comfort-mode::before{display:none!important}
+body.comfort-mode header{color:#e8f0fa!important}
+body.comfort-mode header::before{background:#1a2735!important}
+body.comfort-mode header::after{
+  background:linear-gradient(to bottom,#26384b 0 33%,#345063 33% 68%,#172430 68% 100%)!important
+}
+body.comfort-mode header h1,
+body.comfort-mode header p,
+body.comfort-mode header small,
+body.comfort-mode header a,
+body.comfort-mode header .author-switch,
+body.comfort-mode header .tag{
+  color:#eff5fc!important;
+  text-shadow:none!important
+}
+body.comfort-mode header .tag,
+body.comfort-mode header .author-switch[aria-pressed="true"]{
+  background:#26394a!important;
+  border-color:#55728b!important
+}
+body.comfort-mode header .author-switch:hover{background:#2a4052!important}
+body.comfort-mode main > .section-nav{
+  background:#1b2835!important;
+  border-color:#35495d!important;
+  box-shadow:none!important;
+  -webkit-backdrop-filter:none!important;
+  backdrop-filter:none!important
+}
+body.comfort-mode .section-nav a,
+body.comfort-mode .comfort-button,
+body.comfort-mode .back-to-top{
+  background:#243546!important;
+  color:#e5eef9!important;
+  border-color:#51667a!important;
+  box-shadow:none!important
+}
+body.comfort-mode .section-nav a:hover,
+body.comfort-mode .comfort-button:hover,
+body.comfort-mode .back-to-top:hover{
+  background:#30485d!important;
+  color:#fff!important
+}
+body.comfort-mode .comfort-button[aria-pressed="true"]{
+  background:#36566b!important;
+  color:#fff!important;
+  border-color:#79a6bb!important
+}
+body.comfort-mode :is(a,button,select,summary):focus-visible{
+  outline:3px solid #8bcde4!important;
+  outline-offset:3px
+}
+body.comfort-mode section{
+  background:#1c2936!important;
+  color:#e5edf6!important;
+  border-color:#35485b!important;
+  box-shadow:none!important
+}
+body.comfort-mode section:first-of-type{border-top-color:#5c859b!important}
+body.comfort-mode section :is(h2,h3,p,li,td,th,figcaption,small,label){
+  color:#e1eaf5!important
+}
+body.comfort-mode section :is(h2,h3){color:#eaf4ff!important}
+body.comfort-mode section :is(a,summary){color:#a6dcfa!important}
+body.comfort-mode section a:hover{color:#d0efff!important}
+body.comfort-mode section p small,
+body.comfort-mode .zoom-hint,
+body.comfort-mode figcaption,
+body.comfort-mode .theme-hint{color:#bfd1e1!important}
+body.comfort-mode figure,
+body.comfort-mode .scroll{
+  background:#172330!important;
+  border-color:#344c60!important
+}
+body.comfort-mode figure img{
+  background:#fff;
+  border-radius:10px
+}
+body.comfort-mode .scroll{scrollbar-color:#5f7b91 #172330}
+body.comfort-mode table{color:#e5edf6!important}
+body.comfort-mode th,
+body.comfort-mode td{
+  color:#e1eaf5!important;
+  border-bottom-color:#3c4e60!important
+}
+body.comfort-mode thead th,
+body.comfort-mode #serie thead tr > :first-child{
+  background:#2b4659!important;
+  color:#f2f8ff!important
+}
+body.comfort-mode tbody tr:nth-child(even){
+  background:#223242!important
+}
+body.comfort-mode tbody tr:hover{
+  background:#30465a!important
+}
+body.comfort-mode #serie tbody tr > :first-child{
+  background:#1c2936!important;
+  color:#e8f0fa!important;
+  box-shadow:1px 0 0 #3e5366!important
+}
+body.comfort-mode #serie tbody tr:nth-child(even) > :first-child{
+  background:#223242!important
+}
+body.comfort-mode #serie tbody tr:hover > :first-child{
+  background:#30465a!important
+}
+body.comfort-mode details{
+  background:#233345!important;
+  color:#e3edf7!important;
+  border-color:#40566a!important
+}
+body.comfort-mode summary{color:#b6e4fa!important}
+body.comfort-mode select,
+body.comfort-mode input{
+  background:#192735!important;
+  border:1px solid #5b758c!important;
+  color:#eef5fd!important
+}
+body.comfort-mode pre,
+body.comfort-mode code:not(pre code){
+  background:#131e2a!important;
+  color:#eaf5ff!important;
+  border-color:#354a60!important
+}
+body.comfort-mode .academic-references li:target{
+  background:#2d4054!important;
+  outline-color:#7295b4!important
+}
+body.comfort-mode .graph-dialog{
+  background:#172330!important;
+  color:#e5edf6!important;
+  border-color:#526a7f!important;
+  box-shadow:none!important
+}
+body.comfort-mode .graph-tools,
+body.comfort-mode .graph-description{
+  background:#203142!important;
+  color:#e3edf7!important;
+  border-color:#42576b!important
+}
+body.comfort-mode .graph-tools button{
+  color:#ecf5ff!important;
+  background:#2a4054!important;
+  border-color:#59768e!important
+}
+body.comfort-mode .graph-zoom-label{color:#e3edf7!important}
+body.comfort-mode .graph-view{
+  background:#f7f9fc!important;
+  color:#1e2b36!important
+}
+body.comfort-mode .graph-description a{color:#b3e7ff!important}
+body.comfort-mode .graph-view img{background:#fff!important}
+@media print{
+  body.comfort-mode{background:#fff!important;color:#182736!important}
+  body.comfort-mode section{
+    background:#fff!important;color:#182736!important;
+    border-color:#9eafbb!important
+  }
+  body.comfort-mode section :is(h2,h3,p,li,td,th,figcaption,small,label){
+    color:#182736!important
+  }
+}
+
 </style>
 
 
