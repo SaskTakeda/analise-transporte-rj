@@ -254,12 +254,115 @@ pre{max-width:100%;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touc
   .section-nav{scroll-behavior:auto;scroll-snap-type:none}
 }
 
+
+/* Personalização adicional: herói urbano e música de piano.
+   Todos os gráficos e conteúdo acadêmico permanecem intocados. */
+.hero-city,.piano-scene{display:none;position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+body.theme-spider .hero-city{display:block}
+body.theme-music .piano-scene{display:block}
+.hero-city .web-emblem{position:absolute;top:6%;right:4%;width:clamp(88px,17vw,205px);aspect-ratio:1;border:3px solid rgba(245,251,255,.42);border-radius:50%;display:grid;place-items:center;transform:rotate(-14deg);box-shadow:0 0 0 10px rgba(255,255,255,.035),0 0 0 25px rgba(255,255,255,.028);background:repeating-conic-gradient(from 0deg,rgba(255,255,255,.13) 0deg .7deg,transparent 1deg 30deg),repeating-radial-gradient(circle,transparent 0 24px,rgba(255,255,255,.19) 25px 26px,transparent 27px 48px)}
+.hero-city .web-emblem::before{content:"🕷";font-size:clamp(2.7rem,6vw,5.4rem);color:#fff;text-shadow:0 4px 12px rgba(3,18,63,.4);transform:rotate(14deg)}
+.hero-city .city-layer{position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(180deg,transparent,rgba(7,23,61,.64));clip-path:polygon(0 100%,0 48%,5% 48%,5% 23%,10% 23%,10% 60%,17% 60%,17% 38%,22% 38%,22% 5%,28% 5%,28% 56%,34% 56%,34% 32%,41% 32%,41% 68%,47% 68%,47% 19%,54% 19%,54% 52%,62% 52%,62% 33%,67% 33%,67% 69%,74% 69%,74% 28%,81% 28%,81% 50%,88% 50%,88% 16%,94% 16%,94% 60%,100% 60%,100% 100%)}
+body.theme-spider header::before{background:linear-gradient(127deg,#062d72 0%,#154c9a 41%,#bf203b 83%,#db3143 100%)}
+body.theme-spider header h1{text-shadow:0 3px 0 rgba(3,18,64,.15)}
+body.theme-spider .tag{border-color:rgba(255,255,255,.55)}
+body.theme-spider .author-switch[aria-pressed="true"]{box-shadow:inset 0 -3px 0 #f7e7ed}
+body.theme-spider section h2::before{content:"✦";color:#d83b56;font-size:.6em;margin-right:.55em;vertical-align:.15em}
+body.theme-spider header .hero-caption{display:inline-flex;align-items:center;gap:.45rem;margin:0 0 .5rem;padding:.3rem .78rem;border-radius:999px;border:1px solid rgba(255,255,255,.6);color:#f6fbff;background:rgba(7,29,88,.35);letter-spacing:.1em;text-transform:uppercase;font-size:.72rem;font-weight:850}
+.hero-caption,.piano-caption{display:none}
+body.theme-spider .hero-caption{display:inline-flex}
+body.theme-music .piano-caption{display:inline-flex;align-items:center;gap:.5rem;margin:0 0 .5rem;padding:.3rem .78rem;border-radius:999px;border:1px solid rgba(97,49,126,.25);background:rgba(255,255,255,.4);color:#592866;letter-spacing:.075em;text-transform:uppercase;font-size:.72rem;font-weight:800}
+.piano-scene .treble{position:absolute;right:18%;top:1%;font-size:clamp(4rem,15vw,9rem);color:rgba(111,42,135,.22);transform:rotate(11deg)}
+.piano-scene .staff{position:absolute;top:13%;right:2%;width:clamp(160px,32vw,385px);height:155px;transform:rotate(-9deg);opacity:.36;background:repeating-linear-gradient(180deg,transparent 0 17px,#89438d 18px 19px,transparent 20px 27px);mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.piano-scene .keys{position:absolute;right:4%;bottom:4%;display:flex;width:clamp(140px,25vw,310px);height:clamp(46px,7.5vw,85px);opacity:.65;transform:rotate(-7deg);filter:drop-shadow(0 9px 15px rgba(85,33,102,.18))}
+.piano-scene .keys i{position:relative;flex:1;background:linear-gradient(#fff,#fce8ff);border:1px solid #ad86bf;border-radius:0 0 6px 6px}
+.piano-scene .keys i:not(:nth-child(3)):not(:nth-child(7))::after{content:"";position:absolute;z-index:1;top:0;right:-24%;width:48%;height:57%;border-radius:0 0 3px 3px;background:linear-gradient(#433052,#6b4a7c);box-shadow:1px 2px 2px rgba(0,0,0,.15)}
+body.theme-music header::before{background:linear-gradient(130deg,#c6a1e9 0%,#f3aeca 48%,#fbd2d4 100%)}
+body.theme-music section h2::before{content:"♫";font-size:.78em;color:#b25d9b;margin-right:.45em}
+.theme-audio-bar[hidden]{display:none!important}
+.theme-audio-bar{display:none;align-items:center;flex-wrap:wrap;gap:.7rem;margin:.65rem 0 1rem;padding:.66rem .82rem;border-radius:15px;background:rgba(255,255,255,.22);border:1px solid rgba(90,46,110,.25);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);max-width:fit-content}
+body.theme-spider .theme-audio-bar,body.theme-music .theme-audio-bar{display:flex}
+body.theme-spider .theme-audio-bar{background:rgba(5,30,82,.35);border-color:rgba(255,255,255,.45)}
+.theme-audio-title{font-size:.86rem;font-weight:690;color:inherit}
+.theme-audio-toggle{min-height:42px;border-radius:999px;padding:.45rem .85rem;border:1px solid rgba(75,39,100,.45);background:#fff;color:#49305f;font:inherit;font-size:.88rem;font-weight:720;cursor:pointer;touch-action:manipulation}
+body.theme-spider .theme-audio-toggle{color:#10396f;border-color:#bad4ff}
+.theme-audio-toggle:focus-visible{outline:3px solid #fffbff;outline-offset:3px}
+.theme-audio-note{font-size:.73rem;color:inherit;opacity:.82}
+@media(max-width:767px){
+ .hero-city .web-emblem{top:5%;right:-3%;opacity:.25;width:110px}
+ .hero-city .city-layer{height:20%;opacity:.45}
+ .piano-scene .treble{right:8%;top:3%;opacity:.55}
+ .piano-scene .staff{right:-10%;width:210px;opacity:.23}
+ .piano-scene .keys{right:0;bottom:0;opacity:.32;width:170px;height:52px}
+ .theme-audio-bar{width:100%;max-width:100%;padding:.7rem;gap:.45rem}
+ .theme-audio-title{flex-basis:100%}
+ .theme-audio-toggle{min-height:44px}
+ .theme-audio-note{flex:1;min-width:130px}
+}
+@media(prefers-reduced-motion:reduce){.hero-city,.piano-scene{animation:none}}
+
+
+/* Refinamento: símbolos discretos, sem excesso de elementos. */
+.hero-city .city-layer,.piano-scene .keys,.hero-caption,.piano-caption,.theme-audio-bar{display:none!important}
+.hero-city .web-emblem{width:clamp(72px,10vw,120px)!important;top:7%!important;right:4%!important;opacity:.22!important;border-width:1px!important;box-shadow:none!important}
+.hero-city .web-emblem::before{font-size:clamp(2rem,4vw,3rem)!important;opacity:.65}
+.piano-scene .staff{width:clamp(110px,20vw,220px)!important;height:95px!important;opacity:.16!important}
+.piano-scene .treble{font-size:clamp(3.5rem,8vw,6rem)!important;opacity:.4}
+body.theme-music .music-sparkles span:not(:first-child){display:none!important}
+body.theme-music .music-sparkles span:first-child{opacity:.18}
+body.theme-spider header::before{background:linear-gradient(125deg,#16458c,#bc344e 100%)!important}
+body.theme-music header::before{background:linear-gradient(125deg,#c29ce2,#f3b6ce 100%)!important}
+/* Modo de conforto visual: pouca estimulação, sem música nem animações. */
+.comfort-button{min-height:44px;cursor:pointer;font:inherit;font-size:.85rem;font-weight:700;padding:.55rem .9rem;border-radius:999px;border:1px solid #947eae;background:#fff;color:#493064;touch-action:manipulation}
+.comfort-button[aria-pressed=true]{background:#dceaff;color:#173e60;border-color:#7d9bbd}
+.comfort-button:focus-visible,.graph-tools button:focus-visible{outline:3px solid #4b74bb;outline-offset:3px}
+body.comfort-mode{background:#f1f5fb!important;color:#183249!important}
+body.comfort-mode header::before{background:#dce8f5!important}
+body.comfort-mode header::after{background:#adc8e3!important}
+body.comfort-mode header,body.comfort-mode header h1,body.comfort-mode header p,body.comfort-mode header small,body.comfort-mode header .tag,body.comfort-mode header .author-switch{color:#1a3349!important}
+body.comfort-mode header .tag{background:#fff!important;border-color:#91aecb!important}
+body.comfort-mode section{background:#fff!important;color:#1a3349!important;border-color:#b8cce2!important;box-shadow:none!important}
+body.comfort-mode section h2,body.comfort-mode section h3,body.comfort-mode section p,body.comfort-mode section li,body.comfort-mode section td{color:#1a3349!important}
+body.comfort-mode .hero-city,body.comfort-mode .piano-scene,body.comfort-mode .music-sparkles{display:none!important}
+body.comfort-mode .section-nav a{background:#fff!important;color:#1c426b!important;border-color:#adc4d8!important}
+body.comfort-mode thead th{background:#e9f2fb!important;color:#173d60!important}
+body.comfort-mode *,body.comfort-mode *::before,body.comfort-mode *::after{animation:none!important;transition:none!important}
+html.comfort-page{scroll-behavior:auto!important}
+body.comfort-mode .reveal-target{opacity:1!important;transform:none!important}
+/* Seções surgem progressivamente na rolagem, se movimento for permitido. */
+.reveals-enabled .reveal-target{opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+.reveals-enabled .reveal-target.is-visible{opacity:1;transform:none}
+/* Ampliação de gráficos: pop-up responsivo com zoom, ESC e foco. */
+.graph-dialog{width:min(1100px,96vw);max-width:96vw;max-height:94vh;max-height:94dvh;padding:0;border-radius:18px;border:1px solid #d3c8e7;background:#fff;color:#25354a;box-shadow:0 25px 85px #1d173d45;overflow:hidden}
+.graph-dialog::backdrop{background:rgba(20,23,43,.74)}
+.graph-layout{display:flex;flex-direction:column;max-height:94vh;max-height:94dvh;min-height:0}
+.graph-tools{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:10px 14px;background:#f7f4fb;border-bottom:1px solid #e3ddeb}
+.graph-tools .graph-actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.graph-tools strong{font-size:.95rem}
+.graph-tools button{min-height:44px;min-width:44px;padding:8px 12px;border-radius:10px;border:1px solid #cdbce1;background:#fff;color:#3e2d58;font:inherit;cursor:pointer}
+.graph-zoom-label{font-size:.85rem;min-width:52px;text-align:center;font-variant-numeric:tabular-nums}
+.graph-view{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:#fff;padding:10px}
+.graph-view img{display:block;width:100%;max-width:none!important;height:auto;border-radius:0}
+.graph-description{margin:0;padding:10px 14px;border-top:1px solid #e6ddeb;font-size:.83rem;background:#fbfafd;color:#534661}
+.figure-open{cursor:zoom-in}
+@media(max-width:767px){
+ .hero-city .web-emblem{width:75px!important;right:-2%!important;opacity:.15!important}
+ .piano-scene .staff{width:145px!important;right:-4%!important;opacity:.1!important}
+ .graph-dialog{width:100vw;max-width:100vw;max-height:100dvh;border-radius:12px}
+ .graph-layout{max-height:95dvh}
+ .graph-tools{padding:8px}
+ .graph-tools strong{flex-basis:100%}
+ .comfort-button{flex:0 0 auto}
+}
+@media(prefers-reduced-motion:reduce){.reveals-enabled .reveal-target{opacity:1!important;transform:none!important;transition:none!important}}
+@media print{.reveal-target{opacity:1!important;transform:none!important}.graph-dialog,.comfort-button{display:none!important}}
+
 </style>
 
 
 
-<main><header><div class="music-sparkles" aria-hidden="true"><span>♪</span><span>♫</span><span>♬</span><span>♩</span></div><span class="tag">Tabela 440 · Data.Rio</span> <span class="tag">1995–2025</span><h1>Movimento de passageiros no município do Rio de Janeiro, 1995–2025</h1><p class="authors"><strong><button type="button" class="author-switch" id="giovanna-theme" aria-pressed="false" aria-label="Ativar tema musical de Giovanna" title="Clique para ativar o tema musical">Giovanna Sigette Lobo</button> <span class="author-separator">e</span> <button type="button" class="author-switch" id="theo-theme" aria-pressed="false" aria-label="Ativar tema inspirado no Homem-Aranha de Theo" title="Clique para ativar o tema inspirado no Homem-Aranha">Theo Cubas Reis</button></strong><br>Orientação de Alexandre Neves Louzada</p><p id="theme-hint" class="theme-hint" aria-live="polite">Dica: clique no nome de cada autor para descobrir um tema secreto.</p><small>Centro Universitário La Salle do Rio de Janeiro (UniLaSalle-RJ) · Sistemas de Informação · 6º período · 2026.2<br>Linguagem de Programação (Análise e Visualização de Dados com Python)</small><p><a id="repo" hidden>Repositório no GitHub</a></p></header>
-<nav class="section-nav" aria-label="Navegação do artigo"><a href="#resumo">Resumo</a><a href="#introducao">Introdução</a><a href="#metodologia">Metodologia</a><a href="#resultados">Resultados</a><a href="#conclusao">Conclusão</a><a href="#dados-fair">Dados e FAIR</a><a href="#referencias">Referências</a></nav>
+<main><header><div class="music-sparkles" aria-hidden="true"><span>♪</span><span>♫</span><span>♬</span><span>♩</span></div><div class="hero-city" aria-hidden="true"><div class="web-emblem"></div><div class="city-layer"></div></div><div class="piano-scene" aria-hidden="true"><div class="staff"></div><span class="treble">𝄞</span><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="hero-caption">🕸 Herói da vizinhança</div><div class="piano-caption">♫ Melodias ao luar</div><span class="tag">Tabela 440 · Data.Rio</span> <span class="tag">1995–2025</span><h1>Movimento de passageiros no município do Rio de Janeiro, 1995–2025</h1><p class="authors"><strong><button type="button" class="author-switch" id="giovanna-theme" aria-pressed="false" aria-label="Ativar tema musical de Giovanna" title="Clique para ativar o tema musical">Giovanna Sigette Lobo</button> <span class="author-separator">e</span> <button type="button" class="author-switch" id="theo-theme" aria-pressed="false" aria-label="Ativar tema inspirado no Homem-Aranha de Theo" title="Clique para ativar o tema inspirado no Homem-Aranha">Theo Cubas Reis</button></strong><br>Orientação de Alexandre Neves Louzada</p><p id="theme-hint" class="theme-hint" aria-live="polite">Dica: clique no nome de cada autor para descobrir um tema secreto.</p><small>Centro Universitário La Salle do Rio de Janeiro (UniLaSalle-RJ) · Sistemas de Informação · 6º período · 2026.2<br>Linguagem de Programação (Análise e Visualização de Dados com Python)</small><p><a id="repo" hidden>Repositório no GitHub</a></p></header>
+<nav class="section-nav" aria-label="Navegação do artigo"><a href="#resumo">Resumo</a><a href="#introducao">Introdução</a><a href="#metodologia">Metodologia</a><a href="#resultados">Resultados</a><a href="#conclusao">Conclusão</a><a href="#dados-fair">Dados e FAIR</a><a href="#referencias">Referências</a><button type="button" class="comfort-button" id="comfort-toggle" aria-pressed="false" title="Reduzir animações, sons e distrações">Modo conforto visual</button></nav>
 <section id="resumo"><h2>Resumo</h2><p>Como mudou o peso dos ônibus no movimento de passageiros do Rio de Janeiro e quais modais recuperaram o volume registrado em 2019? O estudo usa a Tabela 440 do Data.Rio para acompanhar seis séries anuais entre 1995 e 2025. A planilha original foi tratada em Python, mantendo a unidade de milhares de passageiros e as lacunas documentadas para o bonde de Santa Teresa. A comparação combina volumes absolutos, participações em anos com cobertura completa e índices relativos a 2019. Os ônibus mantiveram o maior movimento ao longo da série, mas sua participação caiu de 84,7% em 1995 para 68,1% em 2025. No mesmo intervalo, o metrô passou de 6,0% para 18,9%. Em 2020, todos os modais registraram queda frente ao ano anterior. Em 2025, apenas o bonde e o transporte aeroviário superaram seus volumes de 2019. Os resultados mostram como o crescimento relativo de um modal pode coexistir com um volume ainda inferior ao de anos anteriores. A agregação anual permite descrever essas diferenças, mas impede identificar trajetos individuais ou atribuir as mudanças a uma causa específica.</p><p><strong>Palavras-chave</strong> · Mobilidade urbana, transporte de passageiros, Rio de Janeiro, séries temporais, dados abertos.</p></section>
 <section id="introducao"><h2>1. Introdução</h2><p>A contagem anual ajuda a dimensionar o uso de cada sistema de transporte. Um modal pode ganhar participação enquanto perde passageiros, caso os demais recuem mais. Para distinguir esses movimentos, examinamos três perguntas.</p><ol><li>Como evoluiu o volume de passageiros em cada modal?</li><li>Como mudou a participação dos modais entre 1995 e 2025?</li><li>Quais modais superaram em 2025 o volume de 2019, após a queda de 2020?</li></ol></section>
 <section id="metodologia"><h2>2. Metodologia e pipeline de dados</h2><p>A aba T 440 do arquivo XLS contém uma linha por ano e seis séries em milhares de passageiros. O ETL lê a planilha binária com xlrd e pandas, identifica as linhas com ano numérico, verifica a sequência de 1995 a 2025, converte os volumes para números decimais e grava CSV.GZ em UTF-8. Não há imputação. O bonde apresenta três valores indisponíveis entre a interrupção de agosto de 2011 e a retomada de julho de 2015.</p><pre><code>total = dados.sum(axis=1, min_count=6)
@@ -274,6 +377,18 @@ indice = dados.div(dados.loc[2019]).mul(100)</code></pre><p>A participação exi
 python -m src.etl
 python -m src.figuras</code></pre></section>
 <section id="referencias"><h2>6. Referências</h2><ul><li>Data.Rio. (2026). <a href="https://www.data.rio/documents/5d5849bf28bf4f689214f890e3f4ac04/about">Tabela 440: movimento de passageiros no município do Rio de Janeiro entre 1995 e 2025</a> [Conjunto de dados].</li><li>The pandas development team. (s.d.). <a href="https://pandas.pydata.org/docs/">pandas documentation</a>.</li><li>Wilkinson, M. D., et al. (2016). The FAIR Guiding Principles for scientific data management and stewardship. <i>Scientific Data, 3</i>, 160018. <a href="https://doi.org/10.1038/sdata.2016.18">doi.org/10.1038/sdata.2016.18</a>.</li></ul></section></main>
+<dialog class="graph-dialog" id="graph-dialog" aria-labelledby="graph-dialog-title" aria-describedby="graph-description">
+  <div class="graph-layout"><div class="graph-tools"><strong id="graph-dialog-title">Visualizar gráfico</strong>
+    <div class="graph-actions">
+      <button type="button" id="graph-zoom-out" aria-label="Diminuir o gráfico">−</button>
+      <span class="graph-zoom-label" id="graph-zoom-label" aria-live="polite">100%</span>
+      <button type="button" id="graph-zoom-in" aria-label="Ampliar o gráfico">+</button>
+      <button type="button" id="graph-dialog-close" aria-label="Fechar o gráfico">Fechar ✕</button>
+    </div></div>
+    <div class="graph-view" id="graph-view"><img id="graph-image" alt=""></div>
+    <p class="graph-description" id="graph-description">Arraste para explorar o gráfico ampliado. <a id="graph-open-original" target="_blank" rel="noopener">Abrir imagem original</a></p>
+  </div>
+</dialog>
 <script>
 const filtro=document.querySelector('#ano');
 document.querySelector('#filtro').hidden=false;
@@ -286,9 +401,9 @@ const cmds=document.querySelector('#comandos');cmds.textContent='git clone '+url
 }
 </script>
 <script>
-/* Ativação dos temas secretos ao clicar nos nomes dos autores.
-   Clicar novamente no mesmo nome restaura o tema lilás/rosa.
-   Clicar no outro nome troca diretamente de tema. */
+/* Easter eggs acessíveis: música ORIGINAL criada por síntese no navegador.
+   Não reproduz nem utiliza arquivos do jogo Spider-Man PS4.
+   O áudio começa somente com clique do visitante, com opção de pausa. */
 (() => {
   "use strict";
   const buttons = {
@@ -297,13 +412,147 @@ const cmds=document.querySelector('#comandos');cmds.textContent='git clone '+url
   };
   const hint = document.getElementById("theme-hint");
   if (!buttons.spider || !buttons.music) return;
+
   let current = null;
+  let audioContext = null;
+  let trackBus = null;
+  let loopTimer = null;
+  let generation = 0;
+  let playing = false;
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+
+  /* Duas melodias originais, sem arquivos externos nem bibliotecas de terceiros.
+     Cada item da melodia: deslocamento em tempos, nota MIDI e duração em tempos. */
+  const themes = {
+    spider: {
+      name: "Aventura urbana · trilha original",
+      bpm: 104,
+      lead: [[0,62,.6],[.75,65,.34],[1.25,69,.65],[2.2,74,1.1],[3.5,72,.35],
+             [4,70,.75],[5.15,69,.45],[6,65,.68],[7,67,.7],
+             [8,69,.75],[9,72,.5],[9.75,74,.8],[11,77,.75],
+             [12,74,.55],[13,72,.5],[14,69,.55],[15,65,.7]],
+      chords: [[0,[50,57,62]],[4,[46,53,58]],[8,[41,48,53]],[12,[48,55,60]]],
+      bass: [[0,38],[2,38],[4,34],[6,34],[8,29],[10,29],[12,36],[14,36]]
+    },
+    music: {
+      name: "Piano ao entardecer · trilha original",
+      bpm: 72,
+      lead: [[0,74,.95],[1.5,78,.8],[2.5,81,1.35],
+             [4,78,.82],[5.5,76,.78],[6.5,74,1.3],
+             [8,71,.92],[9.5,74,.75],[10.5,78,1.4],
+             [12,76,.78],[13.25,74,.85],[14.25,73,1.35]],
+      chords: [[0,[50,54,57]],[4,[47,50,54]],[8,[43,47,50]],[12,[45,52,57]]],
+      bass: [[0,38],[4,35],[8,31],[12,33]]
+    }
+  };
+
+  function note(midi, at, seconds, volume, timbre, bus) {
+    const frequency = 440 * Math.pow(2, (midi - 69) / 12);
+    const envelope = audioContext.createGain();
+    const attack = timbre === "piano" ? .011 : .035;
+    const release = Math.max(.22, seconds);
+    envelope.gain.setValueAtTime(.0001, at);
+    envelope.gain.exponentialRampToValueAtTime(Math.max(.0002, volume), at + attack);
+    envelope.gain.exponentialRampToValueAtTime(.0001, at + release);
+    envelope.connect(bus);
+
+    const primary = audioContext.createOscillator();
+    primary.type = timbre === "piano" ? "sine" : "triangle";
+    primary.frequency.setValueAtTime(frequency, at);
+    primary.connect(envelope);
+    primary.start(at);
+    primary.stop(at + release + .02);
+
+    const harmonic = audioContext.createOscillator();
+    const overtone = audioContext.createGain();
+    harmonic.type = "sine";
+    harmonic.frequency.setValueAtTime(frequency * (timbre === "piano" ? 2 : 1.005), at);
+    overtone.gain.value = timbre === "piano" ? .14 : .1;
+    harmonic.connect(overtone);
+    overtone.connect(envelope);
+    harmonic.start(at);
+    harmonic.stop(at + release + .02);
+  }
+
+  function schedulePhrase(name, at, bus) {
+    const pattern = themes[name];
+    const beat = 60 / pattern.bpm;
+    const piano = name === "music";
+    const timbre = piano ? "piano" : "hero";
+
+    pattern.chords.forEach(([offset, chord]) => {
+      chord.forEach((pitch, i) => note(pitch + 12, at + offset * beat, (piano ? 3.4 : 2.4) * beat,
+        piano ? .013 : .019, timbre, bus));
+    });
+    pattern.bass.forEach(([offset, pitch]) => {
+      note(pitch, at + offset * beat, (piano ? 2.5 : 1.4) * beat,
+        piano ? .022 : .032, timbre, bus);
+    });
+    pattern.lead.forEach(([offset, pitch, duration]) => {
+      note(pitch, at + offset * beat, Math.max(.35, duration * beat + (piano ? .3 : .08)),
+        piano ? .061 : .072, timbre, bus);
+    });
+    return 16 * beat;
+  }
+
+  function stopSound() {
+    generation++;
+    if (loopTimer !== null) {
+      window.clearTimeout(loopTimer);
+      loopTimer = null;
+    }
+    if (trackBus && audioContext) {
+      const oldBus = trackBus;
+      const now = audioContext.currentTime;
+      oldBus.gain.cancelScheduledValues(now);
+      oldBus.gain.setValueAtTime(Math.max(.0001, oldBus.gain.value), now);
+      oldBus.gain.linearRampToValueAtTime(0, now + .16);
+      window.setTimeout(() => { try { oldBus.disconnect(); } catch (_) {} }, 350);
+      trackBus = null;
+    }
+    playing = false;
+    
+  }
+
+  function startSound() {
+    if (!current || !AudioContextClass) {
+      
+      return;
+    }
+    /* Criado/resumido diretamente após o clique para funcionar no Safari iOS. */
+    if (!audioContext) audioContext = new AudioContextClass();
+    if (audioContext.state === "suspended") {
+      audioContext.resume().catch(() => {
+        stopSound();
+      });
+    }
+    const bus = audioContext.createGain();
+    bus.gain.setValueAtTime(0, audioContext.currentTime);
+    bus.gain.linearRampToValueAtTime(.025, audioContext.currentTime + .23);
+    bus.connect(audioContext.destination);
+    trackBus = bus;
+    playing = true;
+    const myGeneration = ++generation;
+    const themeName = current;
+    let nextTime = audioContext.currentTime + .1;
+
+    function loop() {
+      if (!playing || myGeneration !== generation || document.hidden) return;
+      nextTime = Math.max(nextTime, audioContext.currentTime + .08);
+      const length = schedulePhrase(themeName, nextTime, bus);
+      nextTime += length;
+      const delay = Math.max(100, (nextTime - audioContext.currentTime - .3) * 1000);
+      loopTimer = window.setTimeout(loop, delay);
+    }
+    loop();
+    
+  }
 
   function applyTheme(selected) {
+    stopSound();
     current = current === selected ? null : selected;
     document.body.classList.toggle("theme-spider", current === "spider");
     document.body.classList.toggle("theme-music", current === "music");
-
     Object.entries(buttons).forEach(([key, button]) => {
       const active = current === key;
       const owner = key === "spider" ? "Theo" : "Giovanna";
@@ -312,21 +561,105 @@ const cmds=document.querySelector('#comandos');cmds.textContent='git clone '+url
       button.setAttribute("aria-label", active
         ? "Desativar tema " + label + " de " + owner
         : "Ativar tema " + label + " de " + owner);
-      button.title = active ? "Clique novamente para voltar ao original" : "Clique para ativar o tema secreto";
+      button.title = active ? "Clique novamente para voltar ao tema original" : "Clique para ativar o tema secreto";
     });
-
     if (hint) {
       hint.textContent = current === "spider"
-        ? "🕸️ Modo Theo ativado! Clique em Theo novamente para voltar ao tema original."
+        ? "🕸️ Modo Theo ativado! Clique no nome novamente para voltar ao original."
         : current === "music"
-          ? "♫ Modo Giovanna ativado! Clique em Giovanna novamente para voltar ao tema original."
+          ? "♫ Modo Giovanna ativado! Clique no nome novamente para voltar ao original."
           : "Dica: clique no nome de cada autor para descobrir um tema secreto.";
     }
+    if (current && !document.body.classList.contains("comfort-mode")) startSound();
+    
+  }
+
+
+  const comfortButton = document.getElementById("comfort-toggle");
+  function setComfort(enabled) {
+    document.body.classList.toggle("comfort-mode", enabled);
+    document.documentElement.classList.toggle("comfort-page", enabled);
+    if (enabled) stopSound();
+    if (comfortButton) {
+      comfortButton.setAttribute("aria-pressed", String(enabled));
+      comfortButton.textContent = enabled ? "Conforto visual ativado ✓" : "Modo conforto visual";
+    }
+  }
+  if (comfortButton) {
+    try { setComfort(window.localStorage.getItem("transporteConforto") === "1"); }
+    catch (_) { setComfort(false); }
+    comfortButton.addEventListener("click", () => {
+      const enabled = !document.body.classList.contains("comfort-mode");
+      setComfort(enabled);
+      try { window.localStorage.setItem("transporteConforto", enabled ? "1" : "0"); } catch (_) {}
+    });
   }
 
   buttons.spider.addEventListener("click", () => applyTheme("spider"));
   buttons.music.addEventListener("click", () => applyTheme("music"));
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && playing) stopSound();
+  });
+  window.addEventListener("pagehide", stopSound);
+  
 })();
-
+</script>
+<script>
+/* Melhora a leitura durante a rolagem e amplia figuras usando dialog nativo. */
+(() => {
+  const dialog = document.getElementById("graph-dialog");
+  const image = document.getElementById("graph-image");
+  const view = document.getElementById("graph-view");
+  const label = document.getElementById("graph-zoom-label");
+  const original = document.getElementById("graph-open-original");
+  const title = document.getElementById("graph-dialog-title");
+  if (dialog && typeof dialog.showModal === "function" && image && view) {
+    let zoom = 1;
+    let lastFocus = null;
+    const updateZoom = () => {
+      image.style.width = Math.round(zoom * 100) + "%";
+      label.textContent = Math.round(zoom * 100) + "%";
+      document.getElementById("graph-zoom-out").disabled = zoom <= 1;
+      document.getElementById("graph-zoom-in").disabled = zoom >= 3;
+    };
+    document.querySelectorAll("a.figure-open").forEach((anchor, index) => {
+      anchor.addEventListener("click", (event) => {
+        event.preventDefault();
+        lastFocus = anchor;
+        zoom = 1;
+        image.src = anchor.getAttribute("href");
+        image.alt = anchor.querySelector("img")?.alt || "Gráfico";
+        title.textContent = "Gráfico " + (index + 1) + " ampliado";
+        original.href = image.src;
+        updateZoom();
+        dialog.showModal();
+        view.scrollTo({left:0,top:0});
+        document.getElementById("graph-dialog-close").focus();
+      });
+    });
+    document.getElementById("graph-zoom-in").addEventListener("click", () => {zoom = Math.min(3,zoom + .5);updateZoom();});
+    document.getElementById("graph-zoom-out").addEventListener("click", () => {zoom = Math.max(1,zoom - .5);updateZoom();});
+    document.getElementById("graph-dialog-close").addEventListener("click", () => dialog.close());
+    dialog.addEventListener("click", (event) => {if (event.target === dialog) dialog.close();});
+    dialog.addEventListener("close", () => {
+      image.removeAttribute("src");
+      if (lastFocus?.isConnected) lastFocus.focus();
+    });
+  }
+  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    const sections = document.querySelectorAll("main > section");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({target,isIntersecting}) => {
+        if (isIntersecting) {target.classList.add("is-visible");observer.unobserve(target);}
+      });
+    }, {threshold:.04,rootMargin:"0px 0px -5% 0px"});
+    sections.forEach(section => {
+      section.classList.add("reveal-target");
+      observer.observe(section);
+    });
+    document.documentElement.classList.add("reveals-enabled");
+  }
+})();
 </script>
 </html>
