@@ -308,7 +308,7 @@ body.theme-spider .theme-audio-toggle{color:#10396f;border-color:#bad4ff}
 .hero-city .web-emblem::before{font-size:clamp(2rem,4vw,3rem)!important;opacity:.65}
 .piano-scene .staff{width:clamp(110px,20vw,220px)!important;height:95px!important;opacity:.16!important}
 .piano-scene .treble{font-size:clamp(3.5rem,8vw,6rem)!important;opacity:.4}
-body.theme-music .music-sparkles span:not(:first-child){display:none!important}
+/* all 7 musical symbols remain visible in the themed header */
 body.theme-music .music-sparkles span:first-child{opacity:.18}
 body.theme-spider header::before{background:linear-gradient(125deg,#16458c,#bc344e 100%)!important}
 body.theme-music header::before{background:linear-gradient(125deg,#c29ce2,#f3b6ce 100%)!important}
@@ -376,11 +376,41 @@ body.theme-music .back-to-top{color:#713979;border-color:#dfbbd9}
 body.comfort-mode .back-to-top{box-shadow:none;color:#173e61;border-color:#8aa4c3}
 @media(max-width:480px){.back-to-top{right:12px;padding:.55rem .76rem}}
 
+/* Detalhes discretos somente nos cabeçalhos dos dois temas secretos. */
+body.theme-music .music-sparkles span:not(:first-child){display:block!important}
+body.theme-music .music-sparkles span{
+  display:block;opacity:.20;filter:none;
+  animation:bg-note-drift 8s ease-in-out infinite alternate
+}
+body.theme-music .music-sparkles span:nth-child(1){top:8%;right:7%;left:auto;bottom:auto;font-size:clamp(2.1rem,5.2vw,4rem);opacity:.19}
+body.theme-music .music-sparkles span:nth-child(2){top:37%;right:10%;left:auto;bottom:auto;font-size:clamp(1.8rem,4.5vw,3rem);opacity:.16}
+body.theme-music .music-sparkles span:nth-child(3){top:auto;bottom:15%;right:5%;left:auto;font-size:clamp(2rem,5.5vw,3.6rem);opacity:.18}
+body.theme-music .music-sparkles span:nth-child(4){top:7%;left:70%;right:auto;bottom:auto;font-size:clamp(1.7rem,4vw,2.8rem);opacity:.14}
+body.theme-music .music-sparkles span:nth-child(5){top:57%;right:25%;left:auto;bottom:auto;font-size:clamp(1.7rem,4vw,2.7rem);opacity:.15}
+body.theme-music .music-sparkles span:nth-child(6){top:auto;bottom:10%;right:41%;left:auto;font-size:clamp(1.6rem,3.8vw,2.5rem);opacity:.14}
+body.theme-music .music-sparkles span:nth-child(7){top:8%;left:44%;right:auto;bottom:auto;font-size:clamp(1.6rem,3.6vw,2.4rem);opacity:.13}
+@keyframes bg-note-drift{from{translate:0 0}to{translate:0 -7px}}
+body.theme-spider .hero-city::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.48;
+  background:
+    repeating-radial-gradient(circle at 87% 19%,transparent 0 24px,rgba(245,251,255,.12) 25px 26px,transparent 27px 47px),
+    repeating-conic-gradient(from 0deg at 87% 19%,rgba(245,251,255,.10) 0deg .4deg,transparent .6deg 24deg);
+  -webkit-mask-image:radial-gradient(circle at 87% 19%,#000 0 85px,transparent 240px);
+  mask-image:radial-gradient(circle at 87% 19%,#000 0 85px,transparent 240px)
+}
+@media(max-width:767px){
+  body.theme-music .music-sparkles span{opacity:.12}
+  body.theme-spider .hero-city::after{opacity:.34}
+}
+@media(prefers-reduced-motion:reduce){
+  body.theme-music .music-sparkles span{animation:none!important}
+}
+
 </style>
 
 
 
-<main><header><div class="music-sparkles" aria-hidden="true"><span>♪</span><span>♫</span><span>♬</span><span>♩</span></div><div class="hero-city" aria-hidden="true"><div class="web-emblem"></div><div class="city-layer"></div></div><div class="piano-scene" aria-hidden="true"><div class="staff"></div><span class="treble">𝄞</span><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="hero-caption">🕸 Herói da vizinhança</div><div class="piano-caption">♫ Melodias ao luar</div><span class="tag">Tabela 440 · Data.Rio</span> <span class="tag">1995–2025</span><h1>Movimento de passageiros no município do Rio de Janeiro, 1995–2025</h1><p class="authors"><strong><button type="button" class="author-switch" id="giovanna-theme" aria-pressed="false" aria-label="Ativar tema musical de Giovanna" title="Clique para ativar o tema musical">Giovanna Sigette Lobo</button> <span class="author-separator">e</span> <button type="button" class="author-switch" id="theo-theme" aria-pressed="false" aria-label="Ativar tema inspirado no Homem-Aranha de Theo" title="Clique para ativar o tema inspirado no Homem-Aranha">Theo Cubas Reis</button></strong><br>Orientação de Alexandre Neves Louzada</p><p id="theme-hint" class="theme-hint" aria-live="polite">Dica: clique no nome de cada autor para descobrir um tema secreto.</p><small>Centro Universitário La Salle do Rio de Janeiro (UniLaSalle-RJ) · Sistemas de Informação · 6º período · 2026.2<br>Linguagem de Programação (Análise e Visualização de Dados com Python)</small><p><a id="repo" hidden>Repositório no GitHub</a></p></header>
+<main><header><div class="music-sparkles" aria-hidden="true"><span>♪</span><span>♫</span><span>♬</span><span>♩</span><span>♪</span><span>♫</span><span>♬</span></div><div class="hero-city" aria-hidden="true"><div class="web-emblem"></div><div class="city-layer"></div></div><div class="piano-scene" aria-hidden="true"><div class="staff"></div><span class="treble">𝄞</span><div class="keys"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="hero-caption">🕸 Herói da vizinhança</div><div class="piano-caption">♫ Melodias ao luar</div><span class="tag">Tabela 440 · Data.Rio</span> <span class="tag">1995–2025</span><h1>Movimento de passageiros no município do Rio de Janeiro, 1995–2025</h1><p class="authors"><strong><button type="button" class="author-switch" id="giovanna-theme" aria-pressed="false" aria-label="Ativar tema musical de Giovanna" title="Clique para ativar o tema musical">Giovanna Sigette Lobo</button> <span class="author-separator">e</span> <button type="button" class="author-switch" id="theo-theme" aria-pressed="false" aria-label="Ativar tema inspirado no Homem-Aranha de Theo" title="Clique para ativar o tema inspirado no Homem-Aranha">Theo Cubas Reis</button></strong><br>Orientação de Alexandre Neves Louzada</p><p id="theme-hint" class="theme-hint" aria-live="polite">Dica: clique no nome de cada autor para descobrir um tema secreto.</p><small>Centro Universitário La Salle do Rio de Janeiro (UniLaSalle-RJ) · Sistemas de Informação · 6º período · 2026.2<br>Linguagem de Programação (Análise e Visualização de Dados com Python)</small><p><a id="repo" hidden>Repositório no GitHub</a></p></header>
 <nav class="section-nav" aria-label="Navegação do artigo"><a href="#resumo">Resumo</a><a href="#introducao">Introdução</a><a href="#metodologia">Metodologia</a><a href="#resultados">Resultados</a><a href="#conclusao">Conclusão</a><a href="#dados-fair">Dados e FAIR</a><a href="#referencias">Referências</a><button type="button" class="comfort-button" id="comfort-toggle" aria-pressed="false" title="Reduzir animações, sons e distrações">Modo conforto visual</button></nav>
 <section id="resumo"><h2>Resumo</h2><p>Como mudou o peso dos ônibus no movimento de passageiros do Rio de Janeiro e quais modais recuperaram o volume registrado em 2019? O estudo usa a Tabela 440 do Data.Rio para acompanhar seis séries anuais entre 1995 e 2025. A planilha original foi tratada em Python, mantendo a unidade de milhares de passageiros e as lacunas documentadas para o bonde de Santa Teresa. A comparação combina volumes absolutos, participações em anos com cobertura completa e índices relativos a 2019. Os ônibus mantiveram o maior movimento ao longo da série, mas sua participação caiu de 84,7% em 1995 para 68,1% em 2025. No mesmo intervalo, o metrô passou de 6,0% para 18,9%. Em 2020, todos os modais registraram queda frente ao ano anterior. Em 2025, apenas o bonde e o transporte aeroviário superaram seus volumes de 2019. Os resultados mostram como o crescimento relativo de um modal pode coexistir com um volume ainda inferior ao de anos anteriores. A agregação anual permite descrever essas diferenças, mas impede identificar trajetos individuais ou atribuir as mudanças a uma causa específica.</p><p><strong>Palavras-chave</strong> · Mobilidade urbana, transporte de passageiros, Rio de Janeiro, séries temporais, dados abertos.</p></section>
 <section id="introducao"><h2>1. Introdução</h2><p>A contagem anual ajuda a dimensionar o uso de cada sistema de transporte. Um modal pode ganhar participação enquanto perde passageiros, caso os demais recuem mais. Para distinguir esses movimentos, examinamos três perguntas.</p><ol><li>Como evoluiu o volume de passageiros em cada modal?</li><li>Como mudou a participação dos modais entre 1995 e 2025?</li><li>Quais modais superaram em 2025 o volume de 2019, após a queda de 2020?</li></ol></section>
