@@ -36,7 +36,7 @@ As duas primeiras colunas numéricas representam a parcela do movimento total do
 
 A [Tabela 440 do Data.Rio](https://www.data.rio/documents/5d5849bf28bf4f689214f890e3f4ac04/about) reúne dados de operadores e órgãos de transporte. O arquivo bruto está em [data/raw/440.xls](data/raw/440.xls). A aba analisada é `T 440`. Cada linha corresponde a um ano do município do Rio de Janeiro. Vans e kombis estão fora da cobertura. Consulte as unidades, as lacunas e os créditos no [dicionário de dados](data/data_dictionary.md).
 
-[Artigo acadêmico em HTML](docs/index.html) · [Notebook de análise](notebooks/analise_exploratoria.ipynb) · [Base tratada em CSV.GZ](data/processed/movimento_passageiros_rio.csv.gz)
+[Artigo acadêmico em HTML](https://sasktakeda.github.io/analise-transporte-rj/) · [Notebook de análise](notebooks/analise_exploratoria.ipynb) · [Base tratada em CSV.GZ](data/processed/movimento_passageiros_rio.csv.gz)
 
 ## Estrutura do repositório
 
