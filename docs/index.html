@@ -440,7 +440,24 @@ main{
 main > header, main > nav, main > section{min-width:0}
 main > section{scroll-margin-top:112px}
 main > section p,main > section li{overflow-wrap:break-word}
-main > section > p{max-width:92ch}
+/* Todos os textos dos cartões ocupam sua largura útil com alinhamento justificado. */
+main > section p,
+main > section blockquote,
+main > section figcaption{
+  width:100%;
+  max-width:none;
+  text-align:justify;
+  text-align-last:left;
+  hyphens:auto;
+  overflow-wrap:break-word;
+}
+main > section li{
+  max-width:none;
+  text-align:justify;
+  text-align-last:left;
+  hyphens:auto;
+  overflow-wrap:break-word;
+}
 main > section pre,main > section .scroll,main > section figure{
   max-width:100%;
 }
