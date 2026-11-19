@@ -420,6 +420,137 @@ body.theme-spider:not(.comfort-mode) .hero-city::after{
   body.theme-spider .hero-city::after{animation:none!important;transform:none!important}
 }
 
+
+/* ===== Layout de site adaptativo: desktop amplo, tablet fluido e celular em coluna.
+   A estrutura de análise e os temas dos autores permanecem intactos. ===== */
+main{
+  width:min(100%,1600px);
+  max-width:none;
+  padding-inline:clamp(16px,3.8vw,70px);
+}
+main > header, main > nav, main > section{min-width:0}
+main > section{scroll-margin-top:112px}
+main > section p,main > section li{overflow-wrap:break-word}
+main > section > p{max-width:92ch}
+main > section pre,main > section .scroll,main > section figure{
+  max-width:100%;
+}
+main > section figure{
+  width:min(100%,1080px);
+  margin-left:auto;margin-right:auto;
+}
+main > section figure img{
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+main > section .scroll{
+  overflow-x:auto;
+  overscroll-behavior-x:contain;
+}
+main > section #serie{width:100%}
+@media(min-width:768px){
+  main > header{
+    padding-top:clamp(68px,7vw,108px);
+    padding-bottom:clamp(82px,8vw,120px);
+    margin-bottom:clamp(45px,5vw,72px);
+  }
+  main > header h1{
+    max-width:26ch;
+    font-size:clamp(3.35rem,5.5vw,6rem);
+    line-height:1.07;
+  }
+  main > header small{max-width:83ch}
+  main > .section-nav{
+    position:sticky;
+    top:0;
+    z-index:65;
+    align-self:start;
+    width:100%;
+    padding:12px clamp(12px,1.6vw,22px);
+    margin:0 0 28px;
+    border:1px solid rgba(148,101,167,.20);
+    border-radius:18px;
+    background:rgba(250,247,255,.92);
+    box-shadow:0 9px 30px rgba(74,42,89,.08);
+    -webkit-backdrop-filter:blur(14px);
+    backdrop-filter:blur(14px);
+  }
+  main > .section-nav a{white-space:nowrap}
+  main > .section-nav .comfort-button{margin-left:auto}
+  main > section{margin-bottom:26px}
+}
+@media(min-width:1100px){
+  main{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    column-gap:clamp(20px,2.5vw,42px);
+    row-gap:0;
+    align-items:start;
+  }
+  main > header,main > .section-nav,main > section{
+    grid-column:1/-1;
+  }
+  main > #resumo,main > #conclusao{grid-column:1/2}
+  main > #introducao,main > #dados-fair{grid-column:2/3}
+  main > #resumo,main > #introducao,
+  main > #conclusao,main > #dados-fair{
+    align-self:stretch;
+    height:auto;
+  }
+  main > #metodologia,
+  main > #resultados,
+  main > #referencias{
+    width:100%;
+  }
+  main > #resultados figure{
+    width:min(100%,1100px);
+  }
+}
+@media(min-width:1550px){
+  main > header h1{max-width:28ch}
+  main > section{padding:clamp(34px,3vw,52px)}
+  main > .section-nav{justify-content:center}
+  main > .section-nav .comfort-button{margin-left:auto}
+}
+@media(min-width:768px) and (max-width:1099px){
+  main{width:min(100%,1180px)}
+  main > .section-nav{flex-wrap:wrap}
+}
+@media(max-width:767px){
+  main{
+    display:block;
+    width:100%;
+    padding-inline:clamp(14px,4vw,24px);
+  }
+  main > .section-nav{
+    position:static;
+    max-width:100%;
+    overflow-x:auto;
+    overflow-y:hidden;
+    flex-wrap:nowrap;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;
+  }
+  main > section{
+    width:100%;
+    height:auto;
+    scroll-margin-top:24px;
+  }
+  main > section figure{width:100%}
+  main > section .scroll{overflow-x:auto}
+  main > section #serie{width:max-content;min-width:740px}
+}
+@media(max-width:480px){
+  main{padding-inline:clamp(12px,3.5vw,18px)}
+  main > section{padding:20px 15px}
+  main > header h1{font-size:clamp(2.05rem,9vw,2.7rem);overflow-wrap:break-word}
+  main > .section-nav{gap:.5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  main > .section-nav{scroll-behavior:auto}
+}
+
 </style>
 
 
